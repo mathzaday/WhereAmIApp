@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WhereAmIApp.ViewModels"
+    x:Class="WhereAmIApp.Views.LocalPage"
+    x:DataType="vm:LocalViewModel"
+    BackgroundColor="Black"
+    Shell.NavBarIsVisible="False"
+    Title="LocalPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="📍" FontSize="40" HorizontalOptions="Center"/>
+
+            <Label Text="Where am I?"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="White"
+                   />
+
+            <Button Text="Press here"
+                    Command="{Binding GetLocationCommand}"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Red"
+                    FontSize="20"
+                     />
+
+            <Border
+            Stroke="#555555"
+            StrokeThickness="1.5"
+            BackgroundColor="#171717"
+            StrokeShape="RoundRectangle 15"
+            Padding="15">
+
+            <VerticalStackLayout Spacing="8">
+
+                    <Label Text="🛣️ Street" TextColor="White" />
+                
+                    <Entry
+                    Text="{Binding CurrentLocation.Thoroughfare}"
+                    Placeholder="Street name"
+                    IsReadOnly="True"
+                    TextColor="White" />
+
+                    <Label Text="🔢 Number" TextColor="White" />
+                    <Entry
+                    Text="{Binding CurrentLocation.FeatureName}"
+                    Placeholder="Number"
+                    IsReadOnly="True"
+                    TextColor="White" />
+
+                    <Label Text="🌆 Sublocality" TextColor="White" />
+                    <Entry
+                    Text="{Binding CurrentLocation.SubLocality}"
+                    Placeholder="Sublocality Name"
+                    IsReadOnly="True"
+                    TextColor="White" />
+
+                    <Label Text="🟩 Locality" TextColor="White" />
+                    <Entry
+                    Text="{Binding CurrentLocation.Locality}"
+                    Placeholder="Locality"
+                    IsReadOnly="True"
+                    TextColor="White" />
+
+                    <Label Text="🧱 State"
+               TextColor="White" />
+                    <Entry
+                    Text="{Binding CurrentLocation.AdminArea}"
+                    Placeholder="State name"
+                    IsReadOnly="True"
+                    TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
